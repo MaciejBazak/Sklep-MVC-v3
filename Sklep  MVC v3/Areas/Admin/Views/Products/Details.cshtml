@@ -1,0 +1,66 @@
+﻿@model Sklep__MVC_v3.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Product Details</h2>
+<table class="table">
+    <tr>
+        <th>Product Id</th>
+        <td>@Model.ProductID</td>
+    </tr>
+    <tr>
+        <th>Product Name</th>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <th>Price</th>
+        <td>
+            @if (Model.Price.HasValue)
+            {
+                <span>@Model.Price.Value.ToString("C")</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Date of Purchase</th>
+        <td>
+            @if (Model.DateOfPurchase.HasValue)
+            {
+                <span>@Model.DateOfPurchase.Value.ToString("d/M/yyyy")</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Availabiity Status</th>
+        <td>@Model.AvailabilityStatus</td>
+    </tr>
+    <tr>
+        <th>Category</th>
+        <td>
+            @if (Model.CategoryID.HasValue)
+            {
+                <span>@Model.Category.CategoryName</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Brand</th>
+        <td>
+            @if (Model.BrandID.HasValue)
+            {
+                <span>@Model.Brand.BrandName</span>
+            }
+        </td>
+    </tr>
+    <tr>
+        <th>Active</th>
+        <td>@Model.Active</td>
+    </tr>
+</table>
+
+
+<a class="btn btn-primary text-center" href="admin/products/index">Back to Products</a>
+

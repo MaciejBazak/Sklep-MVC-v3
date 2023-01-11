@@ -1,0 +1,26 @@
+﻿@model Sklep__MVC_v3.Models.Product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayoutPage.cshtml";
+}
+
+<h2>Delete Product</h2>
+
+<form action="/admin/products/delete/@Model.ProductID" method="post">
+    <div class="form-group">
+        <div class="form-group col-md-6">
+            <label for="ProductName">Product Name</label>
+            <input type="hidden" name="ProductID" value="@Model.ProductID" />
+            @Model.ProductName
+        </div>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="Price">Price</label>
+        @Model.Price
+    </div>
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a class="btn btn-warning" href="/admin/products/index">Cancel</a>
+</form>
+
